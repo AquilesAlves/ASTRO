@@ -1,0 +1,56 @@
+---
+
+---
+
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="stylesheet" href="style.css">
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>🕒 Relógio Digital</h1>
+		<div class="relogio">
+			<div id="hora">
+				00
+			</div>
+			:
+			<div id="minuto">
+				00
+			</div>
+			:
+			<div id="segundo">
+				00
+			</div>
+		</div>	
+	
+		<script>
+			function atualizarRelogio() {
+				const agora = new Date();
+				let horas = agora.getHours();
+				let minutos = agora.getMinutes();
+				let segundos = agora.getSeconds();
+
+				// Adiciona zero à esquerda se for menor que 10
+				if (horas < 10) horas = "0" + horas;
+				if (minutos < 10) minutos = "0" + minutos;
+				if (segundos < 10) segundos = "0" + segundos;
+
+				document.getElementById('hora').innerHTML = horas
+				document.getElementById('minuto').innerHTML = minutos
+				document.getElementById('segundo').innerHTML = segundos
+
+			}
+
+			// Atualiza ao abrir a página
+			atualizarRelogio();
+			// Atualiza a cada segundo
+			setInterval(atualizarRelogio, 1000);
+		</script>
+	</body>
+
+</html>
+
